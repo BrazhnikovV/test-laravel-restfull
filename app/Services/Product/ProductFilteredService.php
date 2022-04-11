@@ -3,6 +3,7 @@
 namespace App\Services\Product;
 
 use App\Models\Product;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -28,13 +29,17 @@ class ProductFilteredService implements FilteredServiceInterface
 
     /**
      * @param Request $request
-     * @return LengthAwarePaginator|Collection|null
+     * @return LengthAwarePaginator|null
      */
-    public function filtered(Request $request): LengthAwarePaginator|Collection|null
+    public function filtered(Request $request): LengthAwarePaginator|null
     {
         $filters = $request->get('filters');
-        if ($filters !== NULL) {
-            return $this->getFilteredData($filters);
+        if (($filters !== NULL)) {
+            if ($this->getFilteredData($filters) !== NULL) {
+                return $this->getFilteredData($filters)->paginate(5)->appends($request->input());
+            }
+
+            return NULL;
         }
 
         return $this->model::query()->paginate(5);
@@ -42,9 +47,9 @@ class ProductFilteredService implements FilteredServiceInterface
 
     /**
      * @param $filters
-     * @return null|Collection|LengthAwarePaginator
+     * @return Builder|null
      */
-    private function getFilteredData($filters): null|Collection|LengthAwarePaginator
+    private function getFilteredData($filters): Builder|null
     {
         if (array_key_exists('name', $filters) === true) {
             return $this->getDataByName($filters['name']);
@@ -77,69 +82,63 @@ class ProductFilteredService implements FilteredServiceInterface
 
     /**
      * @param string $name
-     * @return LengthAwarePaginator
+     * @return Builder
      */
-    private function getDataByName(string $name): LengthAwarePaginator
+    private function getDataByName(string $name): Builder
     {
-        return $this->model::query()->where('productname', '=', $name)
-            ->paginate(5)->appends('filters[name]',$name);
+        return $this->model::query()->where('productname', '=', $name);
     }
 
     /**
      * @param int $categoryId
-     * @return LengthAwarePaginator
+     * @return Builder
      */
-    private function getDataByCategoryId(int $categoryId): LengthAwarePaginator
+    private function getDataByCategoryId(int $categoryId): Builder
     {
         return $this->model::whereHas('categories', static function ($query) use($categoryId) {
             $query->where('category_id', '=', $categoryId);
-        })->paginate(5)->appends('filters[categoryId]',$categoryId);
+        });
     }
 
     /**
      * @param $start
      * @param $end
-     * @return LengthAwarePaginator
+     * @return Builder
      */
-    private function getDataByPriceRange($start, $end): LengthAwarePaginator
+    private function getDataByPriceRange($start, $end): Builder
     {
         return $this->model::query()
             ->where('price', '>', $start)
-            ->where('price', '<', $end)
-            ->paginate(5)
-            ->appends('filters[price][min]',$start)
-            ->appends('filters[price][max]',$end);
+            ->where('price', '<', $end);
     }
 
     /**
-     * @return LengthAwarePaginator
+     * @return Builder
      */
-    private function getByNotDeletedSign(): LengthAwarePaginator
+    private function getByNotDeletedSign(): Builder
     {
         return $this->model::query()
-            ->where('deleted_at', '=', NULL)
-            ->paginate(5)->appends('filters[not-deleted]', 1);
+            ->where('deleted_at', '=', NULL);
     }
 
     /**
      * @param $status
-     * @return LengthAwarePaginator
+     * @return Builder
      */
-    private function getByPublishedSign($status): LengthAwarePaginator
+    private function getByPublishedSign($status): Builder
     {
         return $this->model::query()
-            ->where('published', '=', $status)
-            ->paginate(5)->appends('filters[published]', $status);
+            ->where('published', '=', $status);
     }
 
     /**
      * @param $categoryName
-     * @return LengthAwarePaginator
+     * @return Builder
      */
-    private function getByCategoryName($categoryName): LengthAwarePaginator
+    private function getByCategoryName($categoryName): Builder
     {
         return $this->model::whereHas('categories', static function ($query) use($categoryName) {
             $query->where('categoryname', '=', $categoryName);
-        })->paginate(5)->appends('filters[categoryName]', $categoryName);
+        });
     }
 }
