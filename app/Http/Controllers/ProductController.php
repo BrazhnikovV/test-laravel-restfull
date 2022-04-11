@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Collection;
+use App\Http\Resources\ProductResource;
 use App\Http\Requests\Product\ProductRequest;
+use App\Services\Product\ProductFilteredService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 /**
  * @ProductController
@@ -17,11 +20,38 @@ use Illuminate\Contracts\Routing\ResponseFactory;
 class ProductController extends Controller
 {
     /**
-     * @return Collection
+     * @var ProductFilteredService $filteredService
      */
-    public function index(): Collection
+    private ProductFilteredService $filteredService;
+
+    /**
+     * @param ProductFilteredService $filteredService
+     */
+    public function __construct(ProductFilteredService $filteredService)
     {
-        return Product::all();
+        $this->filteredService = $filteredService;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Request $request
+     * @return Response|LengthAwarePaginator
+     */
+    public function index(Request $request): Response|LengthAwarePaginator
+    {
+        return $this->filteredService->filtered($request) ?? response(null, 400);
+    }
+
+    /**
+     * Display a single resource.
+     *
+     * @param int $id
+     * @return ProductResource
+     */
+    public function show(int $id): ProductResource
+    {
+        return new ProductResource(Product::findOrFail($id));
     }
 
     /**

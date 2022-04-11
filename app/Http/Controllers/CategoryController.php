@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Database\QueryException;
+use App\Http\Resources\CategoryResource;
 use App\Http\Requests\Category\CategoryRequest;
 
 /**
@@ -27,6 +28,17 @@ class CategoryController extends Controller
     }
 
     /**
+     * Display a single resource.
+     *
+     * @param int $id
+     * @return CategoryResource
+     */
+    public function show(int $id): CategoryResource
+    {
+        return new CategoryResource(Category::findOrFail($id));
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param int $id
@@ -41,7 +53,7 @@ class CategoryController extends Controller
             }
             return response(null, 503);
         } catch (QueryException) {
-            return response(null, 404);
+            return response(null, 409);
         }
     }
 }
