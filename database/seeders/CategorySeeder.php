@@ -13,6 +13,7 @@ class CategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
+     * Создает 20 категорий для возможности проверить функционал приложения.
      *
      * @return void
      */
