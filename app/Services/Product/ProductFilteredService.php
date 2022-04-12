@@ -14,6 +14,11 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 class ProductFilteredService implements FilteredServiceInterface
 {
     /**
+     * @const PER_PAGE
+     */
+    const PER_PAGE = 5;
+
+    /**
      * @var Product
      */
     private Product $model;
@@ -35,20 +40,20 @@ class ProductFilteredService implements FilteredServiceInterface
         $filters = $request->get('filters');
         if (($filters !== NULL)) {
             if ($this->getFilteredData($filters) !== NULL) {
-                return $this->getFilteredData($filters)->paginate(5)->appends($request->input());
+                return $this->getFilteredData($filters)->paginate(self::PER_PAGE)->appends($request->input());
             }
 
             return NULL;
         }
 
-        return $this->model::query()->paginate(5);
+        return $this->model::query()->paginate(self::PER_PAGE);
     }
 
     /**
-     * @param $filters
+     * @param array $filters
      * @return Builder|null
      */
-    private function getFilteredData($filters): Builder|null
+    private function getFilteredData(array $filters): Builder|null
     {
         if (array_key_exists('name', $filters) === true) {
             return $this->getDataByName($filters['name']);
@@ -100,11 +105,11 @@ class ProductFilteredService implements FilteredServiceInterface
     }
 
     /**
-     * @param $start
-     * @param $end
+     * @param float $start
+     * @param float $end
      * @return Builder
      */
-    private function getDataByPriceRange($start, $end): Builder
+    private function getDataByPriceRange(float $start, float $end): Builder
     {
         return $this->model::query()
             ->where('price', '>', $start)
@@ -121,20 +126,20 @@ class ProductFilteredService implements FilteredServiceInterface
     }
 
     /**
-     * @param $status
+     * @param string $status
      * @return Builder
      */
-    private function getByPublishedSign($status): Builder
+    private function getByPublishedSign(string $status): Builder
     {
         return $this->model::query()
             ->where('published', '=', $status);
     }
 
     /**
-     * @param $categoryName
+     * @param string $categoryName
      * @return Builder
      */
-    private function getByCategoryName($categoryName): Builder
+    private function getByCategoryName(string $categoryName): Builder
     {
         return $this->model::whereHas('categories', static function ($query) use($categoryName) {
             $query->where('categoryname', '=', $categoryName);

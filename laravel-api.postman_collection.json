@@ -6,12 +6,12 @@
 	},
 	"item": [
 		{
-			"name": "http://laravel-decoder.local/api/products",
+			"name": "http://laravel-decoder.local/api/v1/products",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://laravel-decoder.local/api/products",
+					"raw": "http://laravel-decoder.local/api/v1/products",
 					"protocol": "http",
 					"host": [
 						"laravel-decoder",
@@ -19,6 +19,7 @@
 					],
 					"path": [
 						"api",
+						"v1",
 						"products"
 					]
 				}
@@ -26,7 +27,7 @@
 			"response": []
 		},
 		{
-			"name": "http://laravel-decoder.local/api/products/1",
+			"name": "http://laravel-decoder.local/api/v1/products/1",
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -38,7 +39,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"productname\": \"cxvxcvxv\",\n    \"price\": 1000.00,\n    \"published\": 1\n}",
+					"raw": "{\n    \"productname\": \"fghfghgfh\",\n    \"price\": 1000.00,\n    \"published\": 1\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -46,7 +47,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://laravel-decoder.local/api/products/1",
+					"raw": "http://laravel-decoder.local/api/v1/products/1",
 					"protocol": "http",
 					"host": [
 						"laravel-decoder",
@@ -54,6 +55,7 @@
 					],
 					"path": [
 						"api",
+						"v1",
 						"products",
 						"1"
 					]
@@ -62,7 +64,7 @@
 			"response": []
 		},
 		{
-			"name": "http://laravel-decoder.local/api/products",
+			"name": "http://laravel-decoder.local/api/v1/products",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -74,7 +76,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"productname\": \"cxvxcvxv\",\n    \"price\": 1000.00,\n    \"published\": 1\n}",
+					"raw": "{\n    \"productname\": \"mnbmnbmopibonpim\",\n    \"price\": 1400.00,\n    \"published\": 1\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -82,7 +84,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://laravel-decoder.local/api/products",
+					"raw": "http://laravel-decoder.local/api/v1/products",
 					"protocol": "http",
 					"host": [
 						"laravel-decoder",
@@ -90,6 +92,7 @@
 					],
 					"path": [
 						"api",
+						"v1",
 						"products"
 					]
 				}
@@ -97,12 +100,12 @@
 			"response": []
 		},
 		{
-			"name": "http://laravel-decoder.local/api/products/117",
+			"name": "http://laravel-decoder.local/api/v1/products/102",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://laravel-decoder.local/api/products/117",
+					"raw": "http://laravel-decoder.local/api/v1/products/102",
 					"protocol": "http",
 					"host": [
 						"laravel-decoder",
@@ -110,15 +113,16 @@
 					],
 					"path": [
 						"api",
+						"v1",
 						"products",
-						"117"
+						"102"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "http://laravel-decoder.local/api/categories/15",
+			"name": "http://laravel-decoder.local/api/v1/categories/15",
 			"request": {
 				"method": "DELETE",
 				"header": [
@@ -138,7 +142,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://laravel-decoder.local/api/categories/15",
+					"raw": "http://laravel-decoder.local/api/v1/categories/15",
 					"protocol": "http",
 					"host": [
 						"laravel-decoder",
@@ -146,6 +150,7 @@
 					],
 					"path": [
 						"api",
+						"v1",
 						"categories",
 						"15"
 					]
@@ -154,7 +159,7 @@
 			"response": []
 		},
 		{
-			"name": "http://laravel-decoder.local/api/categories",
+			"name": "http://laravel-decoder.local/api/v1/categories",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -174,7 +179,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://laravel-decoder.local/api/categories",
+					"raw": "http://laravel-decoder.local/api/v1/categories",
 					"protocol": "http",
 					"host": [
 						"laravel-decoder",
@@ -182,6 +187,7 @@
 					],
 					"path": [
 						"api",
+						"v1",
 						"categories"
 					]
 				}
@@ -189,12 +195,12 @@
 			"response": []
 		},
 		{
-			"name": "http://laravel-decoder.local/api/products?filters[price][min]=8000&filters[price][max]=9000",
+			"name": "http://laravel-decoder.local/api/v1/products?filters[categoryName]=Hubert Swift",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://laravel-decoder.local/api/products?filters[categoryName]=Hubert Swift",
+					"raw": "http://laravel-decoder.local/api/v1/products?filters[categoryName]=Hubert Swift",
 					"protocol": "http",
 					"host": [
 						"laravel-decoder",
@@ -202,6 +208,7 @@
 					],
 					"path": [
 						"api",
+						"v1",
 						"products"
 					],
 					"query": [
@@ -215,12 +222,12 @@
 			"response": []
 		},
 		{
-			"name": "http://laravel-decoder.local/api/products?filters[price][min]=8000&filters[price][max]=9000",
+			"name": "http://laravel-decoder.local/api/v1/products?filters[price][min]=8000&filters[price][max]=9000",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://laravel-decoder.local/api/products?filters[price][min]=8000&filters[price][max]=9000",
+					"raw": "http://laravel-decoder.local/api/v1/products?filters[price][min]=8000&filters[price][max]=9000",
 					"protocol": "http",
 					"host": [
 						"laravel-decoder",
@@ -228,6 +235,7 @@
 					],
 					"path": [
 						"api",
+						"v1",
 						"products"
 					],
 					"query": [
@@ -245,12 +253,12 @@
 			"response": []
 		},
 		{
-			"name": "http://laravel-decoder.local/api/products?filters[published]=1",
+			"name": "http://laravel-decoder.local/api/v1/products?filters[published]=1",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://laravel-decoder.local/api/products?filters[published]=1",
+					"raw": "http://laravel-decoder.local/api/v1/products?filters[published]=1",
 					"protocol": "http",
 					"host": [
 						"laravel-decoder",
@@ -258,6 +266,7 @@
 					],
 					"path": [
 						"api",
+						"v1",
 						"products"
 					],
 					"query": [
@@ -271,12 +280,12 @@
 			"response": []
 		},
 		{
-			"name": "http://laravel-decoder.local/api/products?filters[not-deleted]=1",
+			"name": "http://laravel-decoder.local/api/v1/products?filters[not-deleted]=1",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://laravel-decoder.local/api/products?filters[not-deleted]=1",
+					"raw": "http://laravel-decoder.local/api/v1/products?filters[not-deleted]=1",
 					"protocol": "http",
 					"host": [
 						"laravel-decoder",
@@ -284,6 +293,7 @@
 					],
 					"path": [
 						"api",
+						"v1",
 						"products"
 					],
 					"query": [
@@ -297,12 +307,12 @@
 			"response": []
 		},
 		{
-			"name": "http://laravel-decoder.local/api/products?filters[name]=Glenda Kuphal",
+			"name": "http://laravel-decoder.local/api/v1/products?filters[name]=Glenda Kuphal",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://laravel-decoder.local/api/products?filters[name]=Glenda Kuphal",
+					"raw": "http://laravel-decoder.local/api/v1/products?filters[name]=Glenda Kuphal",
 					"protocol": "http",
 					"host": [
 						"laravel-decoder",
@@ -310,6 +320,7 @@
 					],
 					"path": [
 						"api",
+						"v1",
 						"products"
 					],
 					"query": [
@@ -323,12 +334,12 @@
 			"response": []
 		},
 		{
-			"name": "http://laravel-decoder.local/api/products?filters[categoryId]=15",
+			"name": "http://laravel-decoder.local/api/v1/products?filters[categoryId]=15",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://laravel-decoder.local/api/products?filters[categoryId]=15",
+					"raw": "http://laravel-decoder.local/api/v1/products?filters[categoryId]=15",
 					"protocol": "http",
 					"host": [
 						"laravel-decoder",
@@ -336,6 +347,7 @@
 					],
 					"path": [
 						"api",
+						"v1",
 						"products"
 					],
 					"query": [
@@ -349,12 +361,12 @@
 			"response": []
 		},
 		{
-			"name": "http://laravel-decoder.local/api/products/1",
+			"name": "http://laravel-decoder.local/api/v1/products/1",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://laravel-decoder.local/api/products/1",
+					"raw": "http://laravel-decoder.local/api/v1/products/1",
 					"protocol": "http",
 					"host": [
 						"laravel-decoder",
@@ -362,6 +374,7 @@
 					],
 					"path": [
 						"api",
+						"v1",
 						"products",
 						"1"
 					]
@@ -370,12 +383,12 @@
 			"response": []
 		},
 		{
-			"name": "http://laravel-decoder.local/api/categories/1",
+			"name": "http://laravel-decoder.local/api/v1/categories/1",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://laravel-decoder.local/api/categories/1",
+					"raw": "http://laravel-decoder.local/api/v1/categories/1",
 					"protocol": "http",
 					"host": [
 						"laravel-decoder",
@@ -383,6 +396,7 @@
 					],
 					"path": [
 						"api",
+						"v1",
 						"categories",
 						"1"
 					]

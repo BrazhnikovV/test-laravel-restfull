@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Api\V1;
 
-use App\Models\Category;
-use Illuminate\Http\Response;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Database\QueryException;
-use App\Http\Resources\CategoryResource;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Category\CategoryRequest;
+use App\Http\Resources\CategoryResource;
+use App\Models\Category;
+use Illuminate\Database\QueryException;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 
 /**
  * @CategoryController
- * @package App\Http\Controllers
+ * @package App\Http\Api\V1
  */
 class CategoryController extends Controller
 {
