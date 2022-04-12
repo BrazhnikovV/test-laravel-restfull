@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Api\V1\CategoryController;
+use App\Http\Api\V1\ProductController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +15,5 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::apiResource('/products', ProductController::class);
-Route::apiResource('/categories', CategoryController::class);
+Route::apiResource('/v1/products', ProductController::class);
+Route::apiResource('/v1/categories', CategoryController::class);

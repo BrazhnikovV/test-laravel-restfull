@@ -13,6 +13,7 @@ class ProductSeeder extends Seeder
 {
     /**
      * Run the database seeds.
+     * Создает 100 товаров для возможности проверить функционал приложения.
      *
      * @return void
      */

@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Exception;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -16,6 +15,8 @@ class ProductCategorySeeder extends Seeder
     /**
      * Run the database seeds.
      *
+     * Связывает протукты и категории, которые должны быть созданы ранее
+     * с помощью сидеров ProductSeeder и ProductSeeder.
      * @return void
      * @throws Exception
      */
