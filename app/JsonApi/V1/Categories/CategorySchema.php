@@ -1,12 +1,11 @@
 <?php
 
-namespace App\JsonApi\V1\Products;
+namespace App\JsonApi\V1\Categories;
 
-use App\Models\Product;
+use App\Models\Category;
 use LaravelJsonApi\Eloquent\Schema;
 use LaravelJsonApi\Eloquent\Fields\ID;
 use LaravelJsonApi\Eloquent\Fields\Str;
-use LaravelJsonApi\Eloquent\Fields\Number;
 use LaravelJsonApi\Eloquent\Fields\DateTime;
 use LaravelJsonApi\Eloquent\Filters\WhereIdIn;
 use LaravelJsonApi\Eloquent\Contracts\Paginator;
@@ -14,18 +13,17 @@ use LaravelJsonApi\Eloquent\Pagination\PagePagination;
 use LaravelJsonApi\Eloquent\Fields\Relations\BelongsToMany;
 
 /**
- * @ProductSchema
- * @package App\JsonApi\V1\Products
+ * @CategorySchema
+ * @package App\JsonApi\V1\Categories
  */
-class ProductSchema extends Schema
+class CategorySchema extends Schema
 {
-
     /**
      * The model the schema corresponds to.
      *
      * @var string
      */
-    public static string $model = Product::class;
+    public static string $model = Category::class;
 
     /**
      * Get the resource fields.
@@ -36,13 +34,10 @@ class ProductSchema extends Schema
     {
         return [
             ID::make(),
-            Str::make('productname'),
-            Number::make('price'),
-            Str::make('published'),
+            Str::make('categoryname'),
             DateTime::make('createdAt')->sortable()->readOnly(),
             DateTime::make('updatedAt')->sortable()->readOnly(),
-            DateTime::make('deletedAt')->sortable()->readOnly(),
-            BelongsToMany::make('categories'),
+            BelongsToMany::make('products'),
         ];
     }
 
