@@ -2,11 +2,15 @@
 
 namespace App\Policies;
 
-use App\Models\Product;
 use App\Models\User;
-use Illuminate\Auth\Access\HandlesAuthorization;
+use App\Models\Product;
 use Illuminate\Auth\Access\Response;
+use Illuminate\Auth\Access\HandlesAuthorization;
 
+/**
+ * @ProductPolicy
+ * @package App\Policies
+ */
 class ProductPolicy
 {
     use HandlesAuthorization;
@@ -14,7 +18,7 @@ class ProductPolicy
     /**
      * Determine whether the user can view any models.
      *
-     * @param  \App\Models\User  $user
+     * @param User $user
      * @return Response|bool
      */
     public function viewAny(User $user)
@@ -25,23 +29,31 @@ class ProductPolicy
     /**
      * Determine whether the user can view the model.
      *
-     * @param  User  $user
-     * @param  Product  $product
+     * @param User|null $user
+     * @param Product $product
+     * @return bool
+     */
+    public function view(?User $user, Product $product): bool
+    {
+        return (int)$product->published === 1;
+    }
+
+    /**
+     * Determine whether the user can view the product's categories.
+     *
+     * @param User|null $user
+     * @param Product $product
      * @return Response|bool
      */
-    public function view(User $user, Product $product): Response|bool
+    public function viewCategories(?User $user, Product $product): Response|bool
     {
-        if ($product->published == 1) {
-            return true;
-        }
-
-        return false;
+        return $this->view($user, $product);
     }
 
     /**
      * Determine whether the user can create models.
      *
-     * @param  \App\Models\User  $user
+     * @param User $user
      * @return Response|bool
      */
     public function create(User $user)
@@ -52,7 +64,7 @@ class ProductPolicy
     /**
      * Determine whether the user can update the model.
      *
-     * @param  \App\Models\User  $user
+     * @param User $user
      * @param  \App\Models\Product  $product
      * @return Response|bool
      */
@@ -64,7 +76,7 @@ class ProductPolicy
     /**
      * Determine whether the user can delete the model.
      *
-     * @param  \App\Models\User  $user
+     * @param User $user
      * @param  \App\Models\Product  $product
      * @return Response|bool
      */
@@ -76,7 +88,7 @@ class ProductPolicy
     /**
      * Determine whether the user can restore the model.
      *
-     * @param  \App\Models\User  $user
+     * @param User $user
      * @param  \App\Models\Product  $product
      * @return Response|bool
      */
@@ -88,7 +100,7 @@ class ProductPolicy
     /**
      * Determine whether the user can permanently delete the model.
      *
-     * @param  \App\Models\User  $user
+     * @param User $user
      * @param  \App\Models\Product  $product
      * @return Response|bool
      */

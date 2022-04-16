@@ -15,5 +15,9 @@ use LaravelJsonApi\Laravel\Http\Controllers\JsonApiController;
 */
 
 JsonApiRoute::server('v1')->prefix('v1')->resources(function ($server) {
-    $server->resource('products', JsonApiController::class)->readOnly();
+    $server->resource('products', JsonApiController::class)
+           ->readOnly()
+           ->relationships(function ($relations) {
+                $relations->hasMany('categories')->readOnly();
+           });
 });
