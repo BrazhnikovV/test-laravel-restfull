@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Api\V1\CategoryController;
-use App\Http\Api\V1\ProductController;
-use Illuminate\Support\Facades\Route;
+use LaravelJsonApi\Laravel\Facades\JsonApiRoute;
+use LaravelJsonApi\Laravel\Http\Controllers\JsonApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::apiResource('/v1/products', ProductController::class);
-Route::apiResource('/v1/categories', CategoryController::class);
+JsonApiRoute::server('v1')->prefix('v1')->resources(function ($server) {
+    $server->resource('products', JsonApiController::class)->readOnly();
+});
