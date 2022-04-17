@@ -19,13 +19,19 @@ use LaravelJsonApi\Eloquent\Fields\Relations\BelongsToMany;
  */
 class ProductSchema extends Schema
 {
-
     /**
      * The model the schema corresponds to.
      *
      * @var string
      */
     public static string $model = Product::class;
+
+    /**
+     * The maximum include path depth.
+     *
+     * @var int
+     */
+    protected int $maxDepth = 3;
 
     /**
      * Get the resource fields.
