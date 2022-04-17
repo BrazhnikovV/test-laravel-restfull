@@ -3,11 +3,14 @@
 namespace App\JsonApi\V1\Products;
 
 use App\Models\Product;
+use Illuminate\Http\Request;
 use LaravelJsonApi\Eloquent\Schema;
 use LaravelJsonApi\Eloquent\Fields\ID;
 use LaravelJsonApi\Eloquent\Fields\Str;
-use LaravelJsonApi\Eloquent\Fields\Number;
+use LaravelJsonApi\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Builder;
 use LaravelJsonApi\Eloquent\Fields\DateTime;
+use LaravelJsonApi\Eloquent\Fields\SoftDelete;
 use LaravelJsonApi\Eloquent\Filters\WhereIdIn;
 use LaravelJsonApi\Eloquent\Contracts\Paginator;
 use LaravelJsonApi\Eloquent\Pagination\PagePagination;
@@ -19,6 +22,8 @@ use LaravelJsonApi\Eloquent\Fields\Relations\BelongsToMany;
  */
 class ProductSchema extends Schema
 {
+    use SoftDeletes;
+
     /**
      * The model the schema corresponds to.
      *
@@ -43,12 +48,13 @@ class ProductSchema extends Schema
         return [
             ID::make(),
             Str::make('productname'),
-            Number::make('price'),
+            Str::make('price'),
             Str::make('published'),
             DateTime::make('createdAt')->sortable()->readOnly(),
             DateTime::make('updatedAt')->sortable()->readOnly(),
             DateTime::make('deletedAt')->sortable()->readOnly(),
             BelongsToMany::make('categories'),
+            SoftDelete::make('deletedAt', 'deleted_at')
         ];
     }
 
@@ -60,7 +66,7 @@ class ProductSchema extends Schema
     public function filters(): array
     {
         return [
-            WhereIdIn::make($this),
+            WhereIdIn::make($this)
         ];
     }
 
@@ -72,6 +78,19 @@ class ProductSchema extends Schema
     public function pagination(): ?Paginator
     {
         return PagePagination::make();
+    }
+
+
+    /**
+     * Build an index query for this resource.
+     *
+     * @param Request|null $request
+     * @param Builder $query
+     * @return Builder
+     */
+    public function indexQuery(?Request $request, Builder $query): Builder
+    {
+        return $query->where('published', '=', '1');
     }
 
 }
