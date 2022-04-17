@@ -3,6 +3,7 @@
 namespace App\JsonApi\V1\Products;
 
 use JetBrains\PhpStorm\ArrayShape;
+use LaravelJsonApi\Validation\Rule as JsonApiRule;
 use LaravelJsonApi\Laravel\Http\Requests\ResourceRequest;
 
 /**
@@ -16,14 +17,15 @@ class ProductRequest extends ResourceRequest
      *
      * @return array
      */
-    #[ArrayShape(['productname' => "string", 'price' => "float", 'published' => "string", 'categories' => "array"])]
+    #[ArrayShape(['productname' => "string", 'price' => "float", 'published' => "string", 'categories' => "array", 'deletedAt' => "array"])]
     public function rules(): array
     {
         return [
             'productname' => 'required|string|max:128',
             'price'       => 'required|numeric|between:1.00,10000.00',
             'published'   => 'required|in:0,1',
-            'categories'  => 'array|min:2|max:10'
+            'categories'  => 'array|min:2|max:10',
+            'deletedAt'   => ['nullable', JsonApiRule::dateTime()]
         ];
     }
 

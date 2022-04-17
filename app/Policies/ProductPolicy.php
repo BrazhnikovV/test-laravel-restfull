@@ -18,12 +18,12 @@ class ProductPolicy
     /**
      * Determine whether the user can view any models.
      *
-     * @param User $user
+     * @param User|null $user
      * @return Response|bool
      */
-    public function viewAny(User $user)
+    public function viewAny(?User $user): Response|bool
     {
-        //
+        return true;
     }
 
     /**
@@ -116,32 +116,8 @@ class ProductPolicy
      * @param Product $product
      * @return Response|bool
      */
-    public function delete(User $user, Product $product)
+    public function delete(User $user, Product $product): Response|bool
     {
-        //
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     *
-     * @param User $user
-     * @param Product $product
-     * @return Response|bool
-     */
-    public function restore(User $user, Product $product)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     *
-     * @param User $user
-     * @param Product $product
-     * @return Response|bool
-     */
-    public function forceDelete(User $user, Product $product)
-    {
-        //
+        return $this->update($user, $product);
     }
 }
