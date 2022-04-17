@@ -6,48 +6,28 @@
 	},
 	"item": [
 		{
-			"name": "http://laravel-decoder.local/api/v1/products",
+			"name": "Get products by id",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://laravel-decoder.local/api/v1/products",
-					"protocol": "http",
-					"host": [
-						"laravel-decoder",
-						"local"
-					],
-					"path": [
-						"api",
-						"v1",
-						"products"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://laravel-decoder.local/api/v1/products/1",
-			"request": {
-				"method": "PUT",
 				"header": [
 					{
-						"key": "X-Requested-With",
-						"value": "XMLHttpRequest",
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|NgrbETYZFlyfXtJO5wRvYgSqHDCBYfcq2hW4mZvo",
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"productname\": \"fghfghgfh\",\n    \"price\": 1000.00,\n    \"published\": 1\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://laravel-decoder.local/api/v1/products/1",
+					"raw": "http://laravel-decoder.local/api/v1/products/100",
 					"protocol": "http",
 					"host": [
 						"laravel-decoder",
@@ -57,55 +37,35 @@
 						"api",
 						"v1",
 						"products",
-						"1"
+						"100"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "http://laravel-decoder.local/api/v1/products",
+			"name": "Get products with pagination",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [
 					{
-						"key": "X-Requested-With",
-						"value": "XMLHttpRequest",
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|NgrbETYZFlyfXtJO5wRvYgSqHDCBYfcq2hW4mZvo",
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"productname\": \"mnbmnbmopibonpim\",\n    \"price\": 1400.00,\n    \"published\": 1\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://laravel-decoder.local/api/v1/products",
-					"protocol": "http",
-					"host": [
-						"laravel-decoder",
-						"local"
-					],
-					"path": [
-						"api",
-						"v1",
-						"products"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://laravel-decoder.local/api/v1/products/102",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://laravel-decoder.local/api/v1/products/102",
+					"raw": "http://laravel-decoder.local/api/v1/products/100",
 					"protocol": "http",
 					"host": [
 						"laravel-decoder",
@@ -115,20 +75,69 @@
 						"api",
 						"v1",
 						"products",
-						"102"
+						"100"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "http://laravel-decoder.local/api/v1/categories/15",
+			"name": "Get products with filters",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
-				"method": "DELETE",
+				"method": "GET",
 				"header": [
 					{
-						"key": "X-Requested-With",
-						"value": "XMLHttpRequest",
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|NgrbETYZFlyfXtJO5wRvYgSqHDCBYfcq2hW4mZvo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://laravel-decoder.local/api/v1/products/100",
+					"protocol": "http",
+					"host": [
+						"laravel-decoder",
+						"local"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get products with categories",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|NgrbETYZFlyfXtJO5wRvYgSqHDCBYfcq2hW4mZvo",
 						"type": "text"
 					}
 				],
@@ -142,231 +151,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://laravel-decoder.local/api/v1/categories/15",
-					"protocol": "http",
-					"host": [
-						"laravel-decoder",
-						"local"
-					],
-					"path": [
-						"api",
-						"v1",
-						"categories",
-						"15"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://laravel-decoder.local/api/v1/categories",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "X-Requested-With",
-						"value": "XMLHttpRequest",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"categoryname\": \"cxvxcvxv\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://laravel-decoder.local/api/v1/categories",
-					"protocol": "http",
-					"host": [
-						"laravel-decoder",
-						"local"
-					],
-					"path": [
-						"api",
-						"v1",
-						"categories"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://laravel-decoder.local/api/v1/products?filters[categoryName]=Hubert Swift",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://laravel-decoder.local/api/v1/products?filters[categoryName]=Hubert Swift",
-					"protocol": "http",
-					"host": [
-						"laravel-decoder",
-						"local"
-					],
-					"path": [
-						"api",
-						"v1",
-						"products"
-					],
-					"query": [
-						{
-							"key": "filters[categoryName]",
-							"value": "Hubert Swift"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://laravel-decoder.local/api/v1/products?filters[price][min]=8000&filters[price][max]=9000",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://laravel-decoder.local/api/v1/products?filters[price][min]=8000&filters[price][max]=9000",
-					"protocol": "http",
-					"host": [
-						"laravel-decoder",
-						"local"
-					],
-					"path": [
-						"api",
-						"v1",
-						"products"
-					],
-					"query": [
-						{
-							"key": "filters[price][min]",
-							"value": "8000"
-						},
-						{
-							"key": "filters[price][max]",
-							"value": "9000"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://laravel-decoder.local/api/v1/products?filters[published]=1",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://laravel-decoder.local/api/v1/products?filters[published]=1",
-					"protocol": "http",
-					"host": [
-						"laravel-decoder",
-						"local"
-					],
-					"path": [
-						"api",
-						"v1",
-						"products"
-					],
-					"query": [
-						{
-							"key": "filters[published]",
-							"value": "1"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://laravel-decoder.local/api/v1/products?filters[not-deleted]=1",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://laravel-decoder.local/api/v1/products?filters[not-deleted]=1",
-					"protocol": "http",
-					"host": [
-						"laravel-decoder",
-						"local"
-					],
-					"path": [
-						"api",
-						"v1",
-						"products"
-					],
-					"query": [
-						{
-							"key": "filters[not-deleted]",
-							"value": "1"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://laravel-decoder.local/api/v1/products?filters[name]=Glenda Kuphal",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://laravel-decoder.local/api/v1/products?filters[name]=Glenda Kuphal",
-					"protocol": "http",
-					"host": [
-						"laravel-decoder",
-						"local"
-					],
-					"path": [
-						"api",
-						"v1",
-						"products"
-					],
-					"query": [
-						{
-							"key": "filters[name]",
-							"value": "Glenda Kuphal"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://laravel-decoder.local/api/v1/products?filters[categoryId]=15",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://laravel-decoder.local/api/v1/products?filters[categoryId]=15",
-					"protocol": "http",
-					"host": [
-						"laravel-decoder",
-						"local"
-					],
-					"path": [
-						"api",
-						"v1",
-						"products"
-					],
-					"query": [
-						{
-							"key": "filters[categoryId]",
-							"value": "15"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://laravel-decoder.local/api/v1/products/1",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://laravel-decoder.local/api/v1/products/1",
+					"raw": "http://laravel-decoder.local/api/v1/products/100/categories",
 					"protocol": "http",
 					"host": [
 						"laravel-decoder",
@@ -376,19 +161,31 @@
 						"api",
 						"v1",
 						"products",
-						"1"
+						"100",
+						"categories"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "http://laravel-decoder.local/api/v1/categories/1",
+			"name": "Get products with include categories",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://laravel-decoder.local/api/v1/categories/1",
+					"raw": "http://laravel-decoder.local/api/v1/products/4?include=categories",
 					"protocol": "http",
 					"host": [
 						"laravel-decoder",
@@ -397,8 +194,358 @@
 					"path": [
 						"api",
 						"v1",
-						"categories",
-						"1"
+						"products",
+						"4"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "categories"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create products with categories",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|NgrbETYZFlyfXtJO5wRvYgSqHDCBYfcq2hW4mZvo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"data\": {\n    \"type\": \"products\",\n    \"attributes\": {\n      \"productname\": \"sneakers nike.\",\n      \"price\": \"2340.35\",\n      \"published\": \"1\"\n    },\n    \"relationships\": {\n      \"categories\": {\n        \"data\": [\n          {\n            \"type\": \"categories\",\n            \"id\": \"12\"\n          },\n          {\n            \"type\": \"categories\",\n            \"id\": \"18\"\n          }\n        ]\n      }\n    }\n  }\n}"
+				},
+				"url": {
+					"raw": "http://laravel-decoder.local/api/v1/products?include=categories",
+					"protocol": "http",
+					"host": [
+						"laravel-decoder",
+						"local"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "categories"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update products with categories",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|NgrbETYZFlyfXtJO5wRvYgSqHDCBYfcq2hW4mZvo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"data\": {\n    \"type\": \"products\",\n    \"attributes\": {\n      \"productname\": \"Super!!! sneakers adidas.\",\n      \"price\": 2300.35,\n      \"published\": \"1\"\n    },\n    \"relationships\": {\n      \"categories\": {\n        \"data\": [\n          {\n            \"type\": \"categories\",\n            \"id\": \"2\"\n          }\n        ]\n      }\n    }\n  }\n}"
+				},
+				"url": {
+					"raw": "http://laravel-decoder.local/api/v1/products/100?include=categories",
+					"protocol": "http",
+					"host": [
+						"laravel-decoder",
+						"local"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"100"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "categories"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update products with nullable categories",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|NgrbETYZFlyfXtJO5wRvYgSqHDCBYfcq2hW4mZvo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": []\n}"
+				},
+				"url": {
+					"raw": "http://laravel-decoder.local/api/v1/products/100/relationships/categories",
+					"protocol": "http",
+					"host": [
+						"laravel-decoder",
+						"local"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"100",
+						"relationships",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete products relationships categories",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|NgrbETYZFlyfXtJO5wRvYgSqHDCBYfcq2hW4mZvo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": []\n}"
+				},
+				"url": {
+					"raw": "http://laravel-decoder.local/api/v1/products/100/relationships/categories",
+					"protocol": "http",
+					"host": [
+						"laravel-decoder",
+						"local"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"100",
+						"relationships",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Force Delete products",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|NgrbETYZFlyfXtJO5wRvYgSqHDCBYfcq2hW4mZvo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://laravel-decoder.local/api/v1/products/111",
+					"protocol": "http",
+					"host": [
+						"laravel-decoder",
+						"local"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"111"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Soft Delete products",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|NgrbETYZFlyfXtJO5wRvYgSqHDCBYfcq2hW4mZvo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"data\": {\n    \"type\": \"products\",\n    \"id\": \"108\",\n    \"attributes\": {\n      \"deletedAt\": \"2022-04-17T17:01:00Z\"\n    }\n  }\n}"
+				},
+				"url": {
+					"raw": "http://laravel-decoder.local/api/v1/products/108",
+					"protocol": "http",
+					"host": [
+						"laravel-decoder",
+						"local"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"108"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Restore products",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|NgrbETYZFlyfXtJO5wRvYgSqHDCBYfcq2hW4mZvo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"type\": \"products\",\n        \"id\": \"110\",\n        \"attributes\": {\n            \"deletedAt\": null\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://laravel-decoder.local/api/v1/products/110",
+					"protocol": "http",
+					"host": [
+						"laravel-decoder",
+						"local"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"110"
 					]
 				}
 			},
