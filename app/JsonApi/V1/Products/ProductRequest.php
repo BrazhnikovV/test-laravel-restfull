@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Http\Requests\Product;
+namespace App\JsonApi\V1\Products;
 
 use JetBrains\PhpStorm\ArrayShape;
-use Illuminate\Foundation\Http\FormRequest;
+use LaravelJsonApi\Laravel\Http\Requests\ResourceRequest;
 
 /**
  * @ProductRequest
- * @package App\Http\Requests\Product
+ * @package App\JsonApi\V1\Products
  */
-class ProductRequest extends FormRequest
+class ProductRequest extends ResourceRequest
 {
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules for the resource.
      *
      * @return array
      */
-    #[ArrayShape(['productname' => "string", 'price' => "decimal", 'published' => "int",'categories' => "array"])]
+    #[ArrayShape(['productname' => "string", 'price' => "float", 'published' => "string", 'categories' => "array"])]
     public function rules(): array
     {
         return [
@@ -26,4 +26,5 @@ class ProductRequest extends FormRequest
             'categories'  => 'array|min:2|max:10'
         ];
     }
+
 }
